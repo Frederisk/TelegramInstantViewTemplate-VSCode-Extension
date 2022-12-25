@@ -1,2 +1,21 @@
-node_modules
-*.vsix
+# Compiled dictories
+out/
+dist/
+
+#Compiled JSON
+syntaxes/*.json
+snippets/*.json
+language-configuration.json
+
+# Dependencies
+node_modules/
+.vscode-test/
+.vscode-test-web/
+
+# Packaged extensions
+**/*.vsix
+
+# Log file
+**/*.log
+
+.fake

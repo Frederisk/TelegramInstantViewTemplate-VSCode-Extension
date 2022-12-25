@@ -10,16 +10,37 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "tgiv",
-      "aliases": [" Telegram Instant View", "tgiv"],
-      "extensions": [".tgiv",".tgivt"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "tgiv",
-      "scopeName": "source.tgiv",
-      "path": "./syntaxes/tgiv.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "tgiv",
+        "aliases": [
+          " Telegram Instant View",
+          "tgiv"
+        ],
+        "extensions": [
+          ".tgiv",
+          ".tgivt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tgiv",
+        "scopeName": "source.tgiv",
+        "path": "./syntaxes/tgiv.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "pretest": "yarn run compile-debug",
+    "compile": "yarn run convert",
+    "compile-debug": "yarn run convert",
+    "convert": "js-yaml js-yaml syntaxes/tgiv.tmLanguage.yaml > syntaxes/tgiv.tmLanguage.json & js-yaml language-configuration.yaml > language-configuration.json &",
+    "package": "vsce package --yarn"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
   }
 }

@@ -1,4 +1,40 @@
-.vscode/**
-.vscode-test/**
+# Workspace config
+.vs/
+.vscode/
+.vscode-test/
+.vscode-test-web/
+.github/
+.git/
+
+# Source code
+out/
+src/
+
+# Modules
+node_modules/
+
+# YAML files
+snippets/*.yaml
+syntaxes/*.yaml
+language-configuration.yaml
+appveyor.yml
+
+# Compiled config
+**/tsconfig.json
+**/tslint.json
+**/.eslintrc.*
+webpack.config.js
+.yarnrc
+
+# Uncompiled files
+**/*.map
+**/*.ts
+
+# Git Ignore file
 .gitignore
-vsc-extension-quickstart.md
+
+# Packaged extensions
+**/*.vsix
+
+# Log file
+**/*.log
