@@ -4,7 +4,7 @@
   "description": "",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": "^1.0.0"
   },
   "categories": [
     "Programming Languages"
@@ -14,8 +14,10 @@
       {
         "id": "tgiv",
         "aliases": [
-          " Telegram Instant View",
-          "tgiv"
+          "Telegram Instant View",
+          "tgiv",
+          "tgivt",
+          "instantview"
         ],
         "extensions": [
           ".tgiv",
@@ -37,7 +39,7 @@
     "pretest": "yarn run compile-debug",
     "compile": "yarn run convert",
     "compile-debug": "yarn run convert",
-    "convert": "js-yaml js-yaml syntaxes/tgiv.tmLanguage.yaml > syntaxes/tgiv.tmLanguage.json & js-yaml language-configuration.yaml > language-configuration.json &",
+    "convert": "js-yaml syntaxes/tgiv.tmLanguage.yaml > syntaxes/tgiv.tmLanguage.json & js-yaml language-configuration.yaml > language-configuration.json &",
     "package": "vsce package --yarn"
   },
   "devDependencies": {

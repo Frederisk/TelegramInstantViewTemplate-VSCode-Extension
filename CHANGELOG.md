@@ -1,9 +1,10 @@
+<!-- markdownlint-disable MD024 -->
 # Change Log
 
-All notable changes to the "telegram-instant-view-template" extension will be documented in this file.
+All notable changes to the "Telegram Instant-View-Template" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+<!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
-## [Unreleased]
+## [1.0.0] - 2022-12-26
 
-- Initial release
+- Initial release!🎉
