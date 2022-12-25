@@ -1,0 +1,25 @@
+{
+  "name": "telegram-instant-view-template",
+  "displayName": "Telegram Instant View Template",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tgiv",
+      "aliases": [" Telegram Instant View", "tgiv"],
+      "extensions": [".tgiv",".tgivt"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tgiv",
+      "scopeName": "source.tgiv",
+      "path": "./syntaxes/tgiv.tmLanguage.json"
+    }]
+  }
+}
