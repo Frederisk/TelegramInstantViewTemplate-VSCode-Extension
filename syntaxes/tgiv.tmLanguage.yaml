@@ -1,19 +1,181 @@
+---
 $schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
-name: ' Telegram Instant View'
+name: "Telegram Instant View"
 patterns:
-  - include: '#keywords'
-  - include: '#strings'
+  - include: "#start"
 repository:
-  keywords:
+  start:
     patterns:
-      - name: keyword.control.tgiv
-        match: \b(if|while|for|return)\b
-  strings:
-    name: string.quoted.double.tgiv
-    begin: '"'
-    end: '"'
+      - include: "#string"
+      - include: "#condition"
+      - include: "#include"
+      - include: "#replace-tag-alias"
+      - include: "#function-with-arguments"
+      - include: "#keyword"
+      - include: "#variable"
+      - include: "#property"
+      - include: "#comment"
+      - include: "#tag-in-xpath"
+      - include: "#tag"
+      - include: "#attribute"
+      - include: "#index"
+      - include: "#null-"
+      - include: "#simple-word"
+      - include: "#continue-line"
+    repository:
+      string:
+        # token: string
+        name: string.quoted.double.tgiv
+        begin: '"'
+        end: '"'
+        patterns:
+          - name: constant.character.escape.tgiv
+            match: \\.
+            # token: hr
+          - name: constant.character.escape.line-continuation.tgiv
+            match: \\(?=\s*$)
+          - name: invalid.illegal.bad-end-of-line.string.tgiv
+            match: .(?=\s*$)
+      condition:
+        patterns:
+          - match: ^(\s*)([?!](?:domain|domain_not|path|path_not)\b)((?:[^\\#]|\\.)*)
+            captures:
+              # token: def
+              2: { name: support.constant.tgiv }
+          - match: ^(\s*)([?!](?:exists|not_exists|false|true|condition)\b)
+            captures:
+              # token: def
+              2: { name: support.constant.tgiv }
+      include:
+        match: ^(\s*)(\+\s*[a-z0-9.-]+)
+        captures:
+          # token: variable-3
+          2: { name: support.variable.tgiv }
+      replace-tag-alias:
+        match: ^(\s*)(<[a-z0-9-]+>)
+        captures:
+          # token: tag
+          2: { name: entity.name.tag.alias.tgiv }
+      function-with-arguments:
+        match: ^(\s*)(@(?:debug|remove|match|replace|urlencode|urldecode|htmlencode|htmldecode|datetime|set_attr|set_attrs|style_to_attrs|background_to_image|json_to_xml|html_to_dom|prepend_to|append_to|before_el|after_el|prepend|append|before|after|replace_tag|wrap|wrap_inner|clone|detach|split_parent|pre|combine|inline|load|unsupported|simplify|if|if_not|map|repeat|while|while_not|function)\b)
+        captures:
+          # token: builtin
+          2: { name: support.function.builtin.tgiv }
+      keyword:
+        match: (?i)^(\s*)(~[a-z][a-z0-9_]*)
+        captures:
+          # token: keyword
+          2: { name: keyword.control.tgiv }
+      variable:
+        patterns:
+          - include: "#variable-sol"
+          - include: "#variable-no-sol"
+        repository:
+          variable-sol:
+            match: (?i)^(\s*)(\$[a-z][a-z0-9_]*)(\??\+?)
+            captures:
+              # token: variable-2
+              2: { name: variable.other.tgiv }
+              # token: positive
+              3: { name: keyword.operator.tgiv }
+          variable-no-sol:
+            match: (?i)\$(?:\$|@|[a-z][a-z0-9_]*)
+            # token: variable-2
+            name: variable.other.tgiv
+      property:
+        match: (?i)^(\s*)([a-z][a-z0-9_]*)(!{0,2})
+        captures:
+          # token: variable-2
+          2: { name: variable.other.tgiv }
+          # token: positive
+          3: { name: keyword.operator.tgiv }
+      comment:
+        # token: comment
+        name: comment.line.number-sign.tgiv
+        begin: (?:#)
+        end: (?<!\\\s*)$
+        patterns:
+          - match: \\(?=\s*$)
+            # token: hr
+            name: constant.character.escape.line-continuation.tgiv
+      tag-in-xpath:
+        match: (?i)(\/)([a-z0-9-]+\:\:)?([a-z0-9_-]+|\*)
+        captures:
+          # token: tag-2
+          3: { name: entity.name.tag.xpath.tgiv }
+      tag:
+        # token: tag
+        name: entity.name.tag.alias.tgiv
+        match: (?i)<[a-z0-9_-]+>
+      attribute:
+        # token: attribute
+        name: entity.other.attribute-name.tgiv
+        match: "@[a-z0-9-]+"
+      index:
+        # token: number
+        name: constant.numeric.tgiv
+        match: (?i)last\(\)|[-+]?(?:\.\d+|\d+\.?\d*)
+      null-:
+        # token: atom
+        name: constant.language.tgiv
+        match: "null"
+      simple-word:
+        # token: variable
+        name: variable.parameter.tgiv
+        match: \w[\w-]*
+      continue-line:
+        begin: ()(\\)(\s*$)
+        end: (?<!\\\s*)$
+        beginCaptures:
+          # token: hr
+          2: { name: constant.character.escape.line-continuation.tgiv }
+        patterns:
+          - include: "#next"
+  next:
     patterns:
-      - name: constant.character.escape.tgiv
-        match: \\.
+      - include: "#string"
+      # - include: "#variable-no-sol"
+      - include: "#comment"
+      - include: "#tag-in-xpath"
+      - include: "#tag"
+      - include: "#attribute"
+      - include: "#index"
+      - include: "#null-"
+      - include: "#simple-word"
+      # - include: "#continue-line"
+      # - include: "#end-of-line"
 scopeName: source.tgiv
+...
+# source: https://instantview.telegram.org/js/codemirror-instantview.js?21&autologin_token=sWPoBAFC47PKPxd0R5PtwS6J1c49G2ZxetwGas3ohTRjqA6VFgAAAAApMx7-ALW4i79SHxt_AYSDCU9GZMllVarXqF4ZCQzIJTxyYfa5
 
+# # https://macromates.com/manual/en/language_grammars#naming_conventions
+# # "string"
+# string=string.quoted.double.tgiv
+# # \
+# hr=constant.character.escape.line-continuation.tgiv
+# # ?domain !false
+# def=support.constant.tgiv
+# # any-string
+# variable=variable.parameter.tgiv #TODO:
+# # $var $@ $$
+# variable-2=variable.other.tgiv
+# # +var
+# variable-3=support.variable.tgiv
+# # <name>
+# tag=entity.name.tag.alias.tgiv
+# # /var::var /var /*
+# tag-2=entity.name.tag.xpath.tgiv
+# # @if
+# builtin=support.function.builtin.tgiv
+# # ~version
+# keyword=keyword.control.tgiv
+# # ! !! ? ?+ +
+# positive=keyword.operator.tgiv
+# # # comment
+# comment=comment.line.number-sign.tgiv
+# # @var
+# attribute=entity.other.attribute-name.tgiv
+# # last() +.1 -1 2.3
+# number=constant.numeric.tgiv
+# # null
+# atom=constant.language.tgiv

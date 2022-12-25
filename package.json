@@ -7,19 +7,22 @@
     "vscode": "^1.0.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Snippets"
   ],
   "contributes": {
     "languages": [
       {
         "id": "tgiv",
         "aliases": [
+          "Telegram Instant View Template",
           "Telegram Instant View",
           "tgiv",
           "tgivt",
           "instantview"
         ],
         "extensions": [
+          ".instantview",
           ".tgiv",
           ".tgivt"
         ],
