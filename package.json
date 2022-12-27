@@ -1,8 +1,8 @@
 {
   "name": "telegram-instant-view-template",
   "displayName": "Telegram Instant View Template",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Telegram Instant View Template syntaxes support",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.0.0"
   },
@@ -22,9 +22,9 @@
           "instantview"
         ],
         "extensions": [
-          ".instantview",
           ".tgiv",
-          ".tgivt"
+          ".tgivt",
+          ".instantview"
         ],
         "configuration": "./language-configuration.json"
       }
