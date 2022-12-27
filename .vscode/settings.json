@@ -1,7 +1,13 @@
 {
-    "cSpell.words": [
-        "instantview",
-        "tgiv",
-        "tgivt"
+  "cSpell.words": [
+    "instantview",
+    "tgiv",
+    "tgivt"
+  ],
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json": [
+      "*.tmLanguage.yml",
+      "*.tmLanguage.yaml"
     ]
+  }
 }

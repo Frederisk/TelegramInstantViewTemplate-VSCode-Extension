@@ -1,0 +1,218 @@
+---
+# region: conditions
+domain:
+  prefix: '!domain'
+  body: '!domain'
+  # description:
+  # scope:
+domain_not:
+  prefix: '!domain_not'
+  body: '!domain_not'
+path:
+  prefix: '!path'
+  body: '!path'
+path_not:
+  prefix: '!path_not'
+  body: '!path_not'
+exists:
+  prefix: '!exists'
+  body: '!exists'
+not_exists:
+  prefix: '!not_exists'
+  body: '!not_exists'
+false:
+  prefix: '!false'
+  body: '!false'
+true:
+  prefix: '!true'
+  body: '!true'
+# functions
+debug:
+  prefix: '@debug'
+  body: '@debug'
+remove:
+  prefix: '@remove'
+  body: '@remove'
+match:
+  prefix: '@match'
+  body: '@match'
+replace:
+  prefix: '@replace'
+  body: '@replace'
+urlencode:
+  prefix: '@urlencode'
+  body: '@urlencode'
+urldecode:
+  prefix: '@urldecode'
+  body: '@urldecode'
+htmlencode:
+  prefix: '@htmlencode'
+  body: '@htmlencode'
+htmldecode:
+  prefix: '@htmldecode'
+  body: '@htmldecode'
+datetime:
+  prefix: '@datetime'
+  body: '@datetime'
+set_attr:
+  prefix: '@set_attr'
+  body: '@set_attr'
+set_attrs:
+  prefix: '@set_attrs'
+  body: '@set_attrs'
+style_to_attrs:
+  prefix: '@style_to_attrs'
+  body: '@style_to_attrs'
+background_to_image:
+  prefix: '@background_to_image'
+  body: '@background_to_image'
+json_to_xml:
+  prefix: '@json_to_xml'
+  body: '@json_to_xml'
+html_to_dom:
+  prefix: '@html_to_dom'
+  body: '@html_to_dom'
+prepend_to:
+  prefix: '@prepend_to'
+  body: '@prepend_to'
+before_el:
+  prefix: '@before_el'
+  body: '@before_el'
+append_to:
+  prefix: '@append_to'
+  body: '@append_to'
+after_el:
+  prefix: '@after_el'
+  body: '@after_el'
+prepend:
+  prefix: '@prepend'
+  body: '@prepend'
+append:
+  prefix: '@append'
+  body: '@append'
+before:
+  prefix: '@before'
+  body: '@before'
+after:
+  prefix: '@after'
+  body: '@after'
+replace_tag:
+  prefix: '@replace_tag'
+  body: '@replace_tag'
+wrap:
+  prefix: '@wrap'
+  body: '@wrap'
+wrap_inner:
+  prefix: '@wrap_inner'
+  body: '@wrap_inner'
+clone:
+  prefix: '@clone'
+  body: '@clone'
+detach:
+  prefix: '@detach'
+  body: '@detach'
+split_parent:
+  prefix: '@split_parent'
+  body: '@split_parent'
+pre:
+  prefix: '@pre'
+  body: '@pre'
+combine:
+  prefix: '@combine'
+  body: '@combine'
+inline:
+  prefix: '@inline'
+  body: '@inline'
+load:
+  prefix: '@load'
+  body: '@load'
+unsupported:
+  prefix: '@unsupported'
+  body: '@unsupported'
+simplify:
+  prefix: '@simplify'
+  body: '@simplify'
+# block_functions
+if:
+  prefix: '@if'
+  body: |
+    @if( ${1} ) {
+      ${2}
+    }
+if_not:
+  prefix: '@if_not'
+  body: |
+    @if_not( ${1} ) {
+      ${2}
+    }
+map:
+  prefix: '@map'
+  body: |
+    @map( ${1} ) {
+      ${2}
+    }
+repeat:
+  prefix: '@repeat'
+  body: |
+    @repeat( ${1} ) {
+      ${2}
+    }
+while:
+  prefix: '@while'
+  body: |
+    @while( ${1} ) {
+      ${2}
+    }
+while_not:
+  prefix: '@while_not'
+  body: |
+    @while_not( ${1} ) {
+      ${2}
+    }
+# properties
+title:
+  prefix: title
+  body: title
+subtitle:
+  prefix: subtitle
+  body: subtitle
+kicker:
+  prefix: kicker
+  body: kicker
+author:
+  prefix: author
+  body: author
+author_url:
+  prefix: author_url
+  body: author_url
+published_date:
+  prefix: published_date
+  body: published_date
+description:
+  prefix: description
+  body: description
+image_url:
+  prefix: image_url
+  body: image_url
+document_url:
+  prefix: document_url
+  body: document_url
+cover:
+  prefix: cover
+  body: cover
+channel:
+  prefix: channel
+  body: channel
+site_name:
+  prefix: site_name
+  body: site_name
+body:
+  prefix: body
+  body: body
+# options
+version:
+  prefix: '~version'
+  body: '~version: ${1:"2.1"}'
+allowed_origin:
+  prefix: '~allowed_origin'
+  body: 'allowed_origin'

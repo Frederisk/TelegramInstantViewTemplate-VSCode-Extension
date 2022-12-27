@@ -35,6 +35,12 @@
         "scopeName": "source.tgiv",
         "path": "./syntaxes/tgiv.tmLanguage.json"
       }
+    ],
+    "snippets": [
+      {
+        "language": "tgiv",
+        "path": "./snippets/snippets.json"
+      }
     ]
   },
   "scripts": {
@@ -42,7 +48,7 @@
     "pretest": "yarn run compile-debug",
     "compile": "yarn run convert",
     "compile-debug": "yarn run convert",
-    "convert": "js-yaml syntaxes/tgiv.tmLanguage.yaml > syntaxes/tgiv.tmLanguage.json & js-yaml language-configuration.yaml > language-configuration.json &",
+    "convert": "js-yaml syntaxes/tgiv.tmLanguage.yaml > syntaxes/tgiv.tmLanguage.json & js-yaml language-configuration.yaml > language-configuration.json & js-yaml snippets/snippets.yaml > snippets/snippets.json &",
     "package": "vsce package --yarn"
   },
   "devDependencies": {
