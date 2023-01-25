@@ -3,6 +3,16 @@
   "displayName": "Telegram Instant View Template",
   "description": "Telegram Instant View Template syntaxes support",
   "version": "1.0.0",
+  "publisher": "RoweWilsonFrederiskHolme",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "author": {
+    "name": "Rowe Wilson Frederisk Holme & lifegpc"
+  },
+  "homepage": "https://github.com/Frederisk/TelegramInstantViewTemplate-VSCode-Extension",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Frederisk/TelegramInstantViewTemplate-VSCode-Extension.git"
+  },
   "engines": {
     "vscode": "^1.0.0"
   },
